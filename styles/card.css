@@ -1,0 +1,38 @@
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.mb-6 {
+    margin-bottom: 1rem !important;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.quiz-card {
+    width: 30rem;
+}
+
+.quiz-answer-card:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.bg-success,
+.bg-danger {
+    color: white !important;
+}
+
+.card-text{
+    font-size: 16px;
+}

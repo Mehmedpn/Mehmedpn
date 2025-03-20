@@ -1,0 +1,107 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    background-color: #add8e6 !important;
+}
+
+.navbar {
+    height: 10vh;
+}
+
+.navbar-brand {
+    font-size: 48px !important;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500 !important;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+.dp-flex {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.ob-fit {
+    object-fit: none;
+}
+
+.vh5 {
+    height: 5vh;
+}
+
+#startscreen,
+#quizscreen {
+    height: 85vh;
+}
+
+.logo, .img-brain {
+    background-color: #add8e694;
+    object-fit: none;
+    height: 30vh;
+}
+
+.subheadline {
+    font-weight: 500 !important;
+    font-size: 28px !important;
+}
+
+.subheadline,
+.font-answer,
+button,
+.font-card-footer, h5, .question-text {
+    font-family: "Fredoka", sans-serif !important;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.question-text{
+    font-size: 18px !important;
+}
+
+.font-answer {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.img-question {
+    height: 20vh;
+    object-fit: cover;
+}
+
+button {
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    pad: 4px !important;
+}
+
+.font-card-footer {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.text-center {
+    display: flex;
+    justify-content: center;
+    text-align: center !important;
+    align-items: center;
+}
+
+#footer {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    height: 5vh;
+    background-color: rgba(199, 199, 199, 0.2);
+}
