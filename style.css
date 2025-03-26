@@ -23,6 +23,21 @@ body {
     text-align: center;
 }
 
+.dp-flex-row {
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+    flex-direction: row !important;
+}
+
+.container-fluid{
+    max-width: 25%;
+}
+
+.darkmode-btn{
+    margin-left: 24px;
+}
+
 .ob-fit {
     object-fit: none;
 }
@@ -32,11 +47,13 @@ body {
 }
 
 #startscreen,
-#quizscreen {
+#quizscreen,
+#endscreen {
     height: 85vh;
 }
 
-.logo, .img-brain {
+.logo,
+.img-brain {
     background-color: #add8e694;
     object-fit: none;
     height: 30vh;
@@ -50,13 +67,15 @@ body {
 .subheadline,
 .font-answer,
 button,
-.font-card-footer, h5, .question-text {
+.font-card-footer,
+h5,
+.question-text {
     font-family: "Fredoka", sans-serif !important;
     font-optical-sizing: auto;
     font-style: normal;
 }
 
-.question-text{
+.question-text {
     font-size: 18px !important;
 }
 
@@ -98,10 +117,25 @@ button {
     align-items: center;
 }
 
-#footer {
-    display: flex;
-    justify-self: center;
-    align-items: center;
-    height: 5vh;
-    background-color: rgba(199, 199, 199, 0.2);
+.progress {
+    border-radius: 0px !important;
+}
+
+.progress-bar {
+    background-color: #3b94ff;
+}
+
+.trophy {
+    position: absolute;
+    right: 0;
+}
+
+.trophy-left {
+    left: 0;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.bg-body-tertiary{
+    background-color: white !important;
 }

@@ -1,0 +1,19 @@
+.dark-mode {
+    background-color: #112233b3  !important;
+    color: #fff !important;
+}
+
+.nav-dark, .logo-dark, .footer-dark {
+    background-color: #112233ab  !important;
+    color: #fff !important;
+}
+
+.card-dark {
+    background-color:#405869c7 !important;
+    color: #fff !important;
+}
+
+.answer-dark{
+    background-color: #112233b3 !important;
+    color: #fff !important;
+}
