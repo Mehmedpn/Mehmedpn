@@ -18,7 +18,6 @@ function startQuiz() {
 
 function getQuestion() {
     let question = questions[currentQuestion];
-
     document.getElementById('questions_length').innerHTML = questions.length;
     document.getElementById('question_number').innerHTML = "Frage " + question['number'];
     document.getElementById('question_text').innerHTML = question['question'];
@@ -27,7 +26,6 @@ function getQuestion() {
     document.getElementById('answer_3').innerHTML = question['answer_3'];
     document.getElementById('answer_4').innerHTML = question['answer_4'];
     document.getElementById('question-number-2').innerHTML = question['number'];
-
     disableNextQuestionButton();
 }
 
@@ -35,20 +33,62 @@ function answer(selection) {
     let question = questions[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1);
     let rightAnswerID = `answer_${question['right_answer']}`;
-    if (selectedQuestionNumber == question['right_answer']) {
-        document.getElementById(selection).parentNode.classList.add('bg-success');
-        disableTryAgainButton();
-        rightAnswer++;
-        rightAnswer = Math.min(rightAnswer + 1, 5);
-        audioSuccess.play();
+    if (selectedRightAnswer(selectedQuestionNumber, question)) {
+        rightSelection(selection);
     } else {
-        document.getElementById(selection).parentNode.classList.add('bg-danger');
-        document.getElementById(rightAnswerID).parentNode.classList.add('bg-success');
-        document.getElementById('try_again').disabled = false;
-        falseAnswer++;
-        audioFail.play();
+        wrongSelection(selection, rightAnswerID)
     }
+}
+
+function wrongSelection(selection, rightAnswerID) {
+    makeSelectionRed(selection);
+    makeRightAnswerGreen(rightAnswerID);
+    ableTryAgainButton();
+    disableNextQuestionButton();
+    pushFalseAnswer();
+    audioFail.play();
+}
+
+function rightSelection(selection) {
+    makeSelectionGreen(selection);
+    ableNextQuestionButton();
+    pushRightAnswer();
+    audioSuccess.play();
+}
+
+function selectedRightAnswer(selectedQuestionNumber, question) {
+    return selectedQuestionNumber == question['right_answer'];
+}
+
+function makeSelectionGreen(selection) {
+    document.getElementById(selection).parentNode.classList.add('bg-success');
+}
+
+function makeSelectionRed(selection) {
+    document.getElementById(selection).parentNode.classList.add('bg-danger');
+}
+
+function makeRightAnswerGreen(rightAnswerID) {
+    document.getElementById(rightAnswerID).parentNode.classList.add('bg-success');
+}
+
+function pushFalseAnswer() {
+    falseAnswer = Math.min(falseAnswer + 1, 5);
+}
+function pushRightAnswer() {
+    rightAnswer = Math.min(rightAnswer + 1, 5);
+}
+
+function ableTryAgainButton() {
+    document.getElementById('try_again').disabled = false;
+}
+
+function ableNextQuestionButton() {
     document.getElementById('next_question').disabled = false;
+}
+
+function disableNextQuestionButton() {
+    document.getElementById('next_question').disabled = true;
 }
 
 function tryAgain() {
@@ -57,18 +97,14 @@ function tryAgain() {
     }
     disableTryAgainButton();
     disableNextQuestionButton();
-    getQuestion();
 }
 
 function nextQuestion() {
     currentQuestion++;
-    if (currentQuestion == questions.length) {
-        document.getElementById('quizscreen').style.display = 'none';
-        document.getElementById('endscreen').style.display = 'flex';
-        document.getElementById('score').innerHTML = (alertText1 + rightAnswer + alertText2 + falseAnswer + " Punkte: " + (rightAnswer - falseAnswer));
-        // document.getElementById('false_answers').innerHTML = falseAnswer;
-        // document.getElementById('questions_length').innerHTML = questions.length;
-        disableNextQuestionButton()
+    if (GameIsOver()) {
+        showEndscreen();
+        getScore();
+        return;
     }
     disableTryAgainButton();
     tryAgain();
@@ -76,8 +112,17 @@ function nextQuestion() {
     moveProgressBar();
 }
 
-function disableNextQuestionButton() {
-    document.getElementById('next_question').disabled = true;
+function GameIsOver() {
+    return currentQuestion == questions.length;
+}
+
+function showEndscreen() {
+    document.getElementById('quizscreen').style.display = 'none';
+    document.getElementById('endscreen').style.display = 'flex';
+}
+
+function getScore() {
+    document.getElementById('score').innerHTML = (alertText1 + rightAnswer + alertText2 + falseAnswer + " Punkte: " + (rightAnswer - falseAnswer));
 }
 
 function disableTryAgainButton() {
@@ -85,16 +130,22 @@ function disableTryAgainButton() {
 }
 
 function moveProgressBar() {
-    let percent = currentQuestion / questions.length * 100;
-    percent = Math.round(percent);
+    let percent = Math.round((currentQuestion / questions.length) * 100);
+    if (percent > 100) percent = 100;  // Sicherheitshalber deckeln
     document.getElementById('progress_bar').innerHTML = `${percent}%`;
     document.getElementById('progress_bar').style.width = `${percent}%`;
+}
+
+function setProgressBar() {
+    document.getElementById('progress_bar').innerHTML = '0%';
+    document.getElementById('progress_bar').style.width = '0%';
 }
 
 function startQuizAgain() {
     document.getElementById('endscreen').style.display = 'none';
     document.getElementById('startscreen').style.display = 'flex';
     setScore();
+    setProgressBar();
     getQuestion();
     tryAgain();
 }

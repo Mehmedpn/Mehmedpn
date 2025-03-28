@@ -7,12 +7,6 @@ function NightMode() {
         name.innerHTML = "Dark Mode";
     }
 
-
-    document.getElementById('nav').style.remove = 'background-color';
-    // document.getElementsByClassName('card').style.remove = 'bs-card-border-width: var(--bs-border-width)'
-    // document.getElementsByClassName('card').style.remove = 'bs-card-border-color: rgb(255 0 0 / 18%)';
-    // document.getElementsByClassName('card').style.remove = 'bs-card-border-radius: var(--bs-border-radius)';
-
     let bodyElement = document.getElementById('body');
     bodyElement?.classList.toggle("dark-mode");
 
@@ -57,4 +51,7 @@ function NightMode() {
 
     let answer4 = document.getElementById('answer_4');
     answer4?.classList.toggle("answer-dark");
+
+    let cardfooter = document.getElementById('card_footer');
+    cardfooter?.classList.toggle("card-footer-dark");
 }
