@@ -1,0 +1,117 @@
+@media screen and (max-width: 768px) {
+
+    /* Allgemeine Anpassungen */
+    body {
+        font-size: 14px;
+    }
+
+    .darkmode-btn {
+        max-width: 50% !important;
+    }
+
+    .navbar-brand {
+        font-size: 32px !important;
+        /* Kleinere Schriftgröße für Mobile */
+    }
+
+    .dp-flex-row {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    .container-fluid {
+        max-width: 90% !important;
+        /* Mehr Platz nutzen */
+    }
+
+    .quiz-card {
+        width: 90% !important;
+        /* Quizkarten anpassen */
+    }
+
+    /* Bildgrößen anpassen */
+    .img-question {
+        height: 15vh !important;
+    }
+
+    .logo,
+    .img-brain {
+        height: 20vh !important;
+    }
+
+    /* Buttons und Antworten */
+    button {
+        font-size: 14px !important;
+        padding: 6px 12px !important;
+    }
+
+    .quiz-answer-card {
+        font-size: 14px !important;
+    }
+
+    /* Fortschrittsbalken */
+    .progress-bar {
+        font-size: 12px !important;
+    }
+
+    /* Endscreen & Startscreen Anpassungen */
+    #startscreen,
+    #quizscreen,
+    #endscreen {
+        height: 85vh !important;
+        padding: 20px 0;
+    }
+
+    /* Trophy Position für kleine Bildschirme */
+    .trophy {
+        position: relative !important;
+        right: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin-top: 10px;
+    }
+
+    .trophy-left {
+        transform: none !important;
+    }
+
+    /* Scoreboard zentrieren */
+    .scoreboard {
+        height: auto !important;
+        padding: 20px 0;
+    }
+
+    /* Karten Anpassung */
+    .card-container {
+        height: auto !important;
+        padding: 10px;
+    }
+
+    .card-footer {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    .font-answer {
+        font-size: 14px !important;
+    }
+
+    .font-card-footer {
+        font-size: 12px !important;
+    }
+
+    /* Frage & Text kleiner machen */
+    .question-text {
+        font-size: 16px !important;
+    }
+
+    .subheadline {
+        font-size: 24px !important;
+    }
+
+    .darkmode-btn-media {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+    }
+}
